@@ -62,6 +62,7 @@ bukkit {
             usage = "minitest <reload>"
         }
     }
+    depend = listOf("ReLoAd")
 }
 
 java {
