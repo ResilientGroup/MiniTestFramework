@@ -208,6 +208,10 @@ public final class MiniTestFramework extends JavaPlugin {
         this.register("defaultBatch", name, Rotation.NONE, 100, 0, true, method);
     }
 
+    public void register(final String name, final long duration, final boolean required, @TSType("(helper: GameTestHelper) => void") final Consumer<GameTestHelperDelegate> method) {
+        this.register("defaultBatch", name, Rotation.NONE, 100, duration, required, method);
+    }
+
     public void register(final String batchId, final String name, @TSType("(helper: GameTestHelper) => void") final Consumer<GameTestHelperDelegate> method) {
         this.register(batchId, name, Rotation.NONE, 100, 0, true, method);
     }
