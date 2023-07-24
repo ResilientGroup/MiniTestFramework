@@ -12,6 +12,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
@@ -126,6 +127,10 @@ public class GameTestHelperDelegate {
         this.delegate.destroyBlock(pos);
     }
 
+    public void destroyBlock(final int x, final int y, final int z) {
+        this.delegate.destroyBlock(new BlockPos(x, y, z));
+    }
+
     public void setBlock(final int x, final int y, final int z, final Block block) {
         this.delegate.setBlock(x, y, z, block);
     }
@@ -154,6 +159,10 @@ public class GameTestHelperDelegate {
         this.delegate.assertBlockPresent(block, x, y, z);
     }
 
+    public void assertGlassPresent(final int x, final int y, final int z) {
+        this.delegate.assertBlockPresent(Blocks.GLASS, x, y, z);
+    }
+
     public void assertBlockPresent(final Block block, final BlockPos pos) {
         this.delegate.assertBlockPresent(block, pos);
     }
@@ -162,12 +171,20 @@ public class GameTestHelperDelegate {
         this.delegate.assertBlockNotPresent(block, x, y, z);
     }
 
+    public void assertGlassNotPresent(final int x, final int y, final int z) {
+        this.delegate.assertBlockNotPresent(Blocks.GLASS, x, y, z);
+    }
+
     public void assertBlockNotPresent(final Block block, final BlockPos pos) {
         this.delegate.assertBlockNotPresent(block, pos);
     }
 
     public void succeedWhenBlockPresent(final Block block, final int x, final int y, final int z) {
         this.delegate.succeedWhenBlockPresent(block, x, y, z);
+    }
+
+    public void succeedWhenGlassPresent(final int x, final int y, final int z) {
+        this.delegate.succeedWhenBlockPresent(Blocks.GLASS, x, y, z);
     }
 
     public void succeedWhenBlockPresent(final Block block, final BlockPos pos) {
