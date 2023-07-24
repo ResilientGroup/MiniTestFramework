@@ -197,6 +197,7 @@ public final class MiniTestFramework extends JavaPlugin {
         bindings.putMember("Items", Items.class);
         bindings.putMember("EntityType", EntityTypeDelegate.class);
         bindings.putMember("BlockPos", BlockPos.class);
+        bindings.putMember("NoRotation", Rotation.NONE);
         return context;
     }
 
